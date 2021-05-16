@@ -43,7 +43,7 @@ namespace hppt
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "hppt v1"));
             }
-
+          app.UseMyMiddleware();  
             app.UseHttpsRedirection();
 
             app.UseRouting();
