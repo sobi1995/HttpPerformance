@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>http_test</RootNamespace>
+    <RootNamespace>hppt_test</RootNamespace>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>

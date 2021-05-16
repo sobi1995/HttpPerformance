@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace http_test
+namespace hppt_test
 {
     public class UnitTest1
     {
