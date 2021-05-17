@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace hppt_lib
+namespace httpPerformance.lib
 {
  
     public class RequestHttpMiddleware
