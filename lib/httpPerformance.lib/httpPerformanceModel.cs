@@ -8,5 +8,6 @@ namespace httpPerformance.lib
 {
   public  class httpPerformanceModel
     {
+        public int Id { get; set; }
     }
 }

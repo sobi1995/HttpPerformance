@@ -9,16 +9,24 @@ using System.Threading.Tasks;
 namespace httpPerformance.lib
 {
  
+
     public class RequestHttpMiddleware
     {
+
+        private readonly RequestDelegate _next;
+        private readonly IDataStore _storeProvider;
+
+        public RequestHttpMiddleware(RequestDelegate next, IDataStore storeProvider)
+        {
+            _next = next;
+            _storeProvider = storeProvider;
+        }
+
         // Name of the Response Header, Custom Headers starts with "X-"  
         private const string RESPONSE_HEADER_RESPONSE_TIME = "X-Response-Time-ms";
         // Handle to the next Middleware in the pipeline  
-        private readonly RequestDelegate _next;
-        public RequestHttpMiddleware(RequestDelegate next)
-        {
-            _next = next;
-        }
+      
+       
         public Task InvokeAsync(HttpContext context)
         {
             // Start the Timer using Stopwatch  
