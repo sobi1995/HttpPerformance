@@ -1,16 +1,21 @@
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace hppt
+namespace hppt_lib
 {
-    public class ResponseTimeMiddleware
+ 
+    public class RequestHttpMiddleware
     {
         // Name of the Response Header, Custom Headers starts with "X-"  
         private const string RESPONSE_HEADER_RESPONSE_TIME = "X-Response-Time-ms";
         // Handle to the next Middleware in the pipeline  
         private readonly RequestDelegate _next;
-        public ResponseTimeMiddleware(RequestDelegate next)
+        public RequestHttpMiddleware(RequestDelegate next)
         {
             _next = next;
         }
@@ -33,4 +38,5 @@ namespace hppt
             return this._next(context);
         }
     }
+
 }

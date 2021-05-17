@@ -1,6 +1,6 @@
 using System;
 
-namespace hppt
+namespace Simple
 {
     public class WeatherForecast
     {
