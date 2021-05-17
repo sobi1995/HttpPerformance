@@ -29,8 +29,11 @@ namespace httpPerformance.lib
        
         public Task InvokeAsync(HttpContext context)
         {
-            // Start the Timer using Stopwatch  
+            // Start the Timer using Stopwatch
+            var dateTimeProcess = new DateTime();
+            dateTimeProcess = DateTime.Now;
             var watch = new Stopwatch();
+           
             watch.Start();
             context.Response.OnStarting(() =>
             {
@@ -40,6 +43,15 @@ namespace httpPerformance.lib
                 // Add the Response time information in the Response headers.   
                 context.Response.Headers[RESPONSE_HEADER_RESPONSE_TIME] = responseTimeForCompleteRequest.ToString();
 
+                var httpPerformanceModel = new httpPerformanceModel() { 
+                ElapsedMilliseconds= watch.ElapsedMilliseconds.ToString(),
+                Elapsed=watch.Elapsed ,
+                ElapsedTicks=watch.ElapsedTicks.ToString(),
+                Start=dateTimeProcess,
+                Stop=DateTime.Now
+
+                };
+                 _storeProvider.SaveAsync(httpPerformanceModel);
                 return Task.CompletedTask;
             });
             // Call the next delegate/middleware in the pipeline   

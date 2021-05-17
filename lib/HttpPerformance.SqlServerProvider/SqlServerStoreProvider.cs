@@ -46,11 +46,19 @@ namespace HttpPerformance.SqlServerProvider
 
         public void Save(httpPerformanceModel model)
         {
+         
             using (var context = GetDbContext())
             {
-                //var log = _mapper.Map<httpPerformance>(model);
-                //context.RequestLogs.Add(log);
-                //context.SaveChanges();
+                var mapToEntity = new HttpPerformanceEntity() {
+                Start=model.Start,
+                Stop=model.Stop,
+                 ElapsedMilliseconds=model.ElapsedMilliseconds,
+                 ElapsedTicks=model.ElapsedTicks,
+                 Elapsed=model.Elapsed
+
+                };
+                context.RequestLogs.Add(mapToEntity);
+                context.SaveChanges();
             }
 
         }
@@ -59,9 +67,17 @@ namespace HttpPerformance.SqlServerProvider
         {
             using (var context = GetDbContext())
             {
-                //var log = _mapper.Map<httpPerformance>(model);
-                //await context.RequestLogs.AddAsync(log);
-                //await context.SaveChangesAsync();
+                var mapToEntity = new HttpPerformanceEntity()
+                {
+                    Start = model.Start,
+                    Stop = model.Stop,
+                    ElapsedMilliseconds = model.ElapsedMilliseconds,
+                    ElapsedTicks = model.ElapsedTicks,
+                    Elapsed = model.Elapsed
+
+                };
+                context.RequestLogs.Add(mapToEntity);
+              await  context.SaveChangesAsync();
             }
 
         }

@@ -8,6 +8,11 @@ namespace httpPerformance.lib
 {
   public  class httpPerformanceModel
     {
-        public int Id { get; set; }
+        public TimeSpan Elapsed { get; set; }
+        public string ElapsedMilliseconds { get; set; }
+        public string ElapsedTicks { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime Stop { get; set; }
+
     }
 }
