@@ -1,10 +1,2 @@
 # HttpPerformance
-HttpPerformance is a small middleware based on .NET5 which helps developers to logs nad check time of requst all incoming http to their applications into a filestorage.
-
- 
-1- Install the package via nuget in visualstudio :
-
-Install-Package httpPerformance -Version 1.0.0
- 
- 
-app.UseHttpPerformance(new SqlServerStoreProvider("your connectionstring"));
+HttpPerformance a  is a small library based on.NET5 helps developers to logs the time of request all incoming HTTP into applications. if you don't  want log all HTTP request in your application .you can set the HttpPerformance attribute on the desired controller or aaction
