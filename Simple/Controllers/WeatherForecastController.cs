@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
+ 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -22,10 +24,11 @@ namespace Simple.Controllers
         {
             _logger = logger;
         }
-
+        [HttpPerformance]
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            Thread.Sleep(5000);
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

@@ -1,6 +1,6 @@
 
 using httpPerformance.lib;
-using HttpPerformance.SqlServerProvider;
+ 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -39,7 +39,7 @@ namespace Simple
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Simple v1"));
             }
-            app.UseHttpPerformance(new SqlServerStoreProvider("Data Source=.;Initial Catalog=httpPerformance_db;Integrated security=true;MultipleActiveResultSets=True;"));
+            //app.UseHttpPerformance(new SqlServerStoreProvider("Data Source=.;Initial Catalog=httpPerformance_db;Integrated security=true;MultipleActiveResultSets=True;"));
             app.UseHttpsRedirection();
 
             app.UseRouting();

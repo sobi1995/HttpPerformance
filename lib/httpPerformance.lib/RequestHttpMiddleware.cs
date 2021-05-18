@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+ 
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -33,7 +34,8 @@ namespace httpPerformance.lib
             var dateTimeProcess = new DateTime();
             dateTimeProcess = DateTime.Now;
             var watch = new Stopwatch();
-           
+       
+
             watch.Start();
             context.Response.OnStarting(() =>
             {
